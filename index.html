@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quick investment input</title>
+<title>Quick input</title>
 <style>
   * { box-sizing: border-box; }
   body {
@@ -15,37 +15,17 @@
     line-height: 1.5;
     min-height: 100vh;
   }
-  .container {
-    max-width: 560px;
-    margin: 0 auto;
-  }
-  h1 {
-    font-size: 28px;
-    margin: 0 0 8px 0;
-    color: #f8fafc;
-  }
-  .intro {
-    color: #94a3b8;
-    margin-bottom: 32px;
-    font-size: 15px;
-  }
+  .container { max-width: 560px; margin: 0 auto; }
+  h1 { font-size: 28px; margin: 0 0 8px 0; color: #f8fafc; }
+  .intro { color: #94a3b8; margin-bottom: 32px; font-size: 15px; }
   .question {
     background: #1e293b;
     padding: 20px;
     border-radius: 12px;
     margin-bottom: 16px;
   }
-  .q-label {
-    font-size: 16px;
-    font-weight: 600;
-    color: #f1f5f9;
-    margin-bottom: 6px;
-  }
-  .q-hint {
-    font-size: 13px;
-    color: #94a3b8;
-    margin-bottom: 14px;
-  }
+  .q-label { font-size: 16px; font-weight: 600; color: #f1f5f9; margin-bottom: 6px; }
+  .q-hint { font-size: 13px; color: #94a3b8; margin-bottom: 14px; }
   .options { display: flex; flex-direction: column; gap: 4px; }
   .opt {
     display: flex;
@@ -60,7 +40,7 @@
   .opt:hover { border-color: #475569; }
   .opt input { margin-right: 12px; transform: scale(1.2); accent-color: #38bdf8; }
   .opt label { cursor: pointer; flex: 1; font-size: 15px; }
-  input[type="text"] {
+  input[type="text"], textarea {
     width: 100%;
     padding: 12px;
     background: #0f172a;
@@ -70,7 +50,8 @@
     font-size: 15px;
     font-family: inherit;
   }
-  input[type="text"]:focus { outline: none; border-color: #38bdf8; }
+  textarea { resize: vertical; min-height: 70px; }
+  input[type="text"]:focus, textarea:focus { outline: none; border-color: #38bdf8; }
   button {
     width: 100%;
     padding: 16px;
@@ -90,53 +71,40 @@
 </head>
 <body>
 <div class="container">
-  <h1>Quick investment input</h1>
-  <p class="intro">Setting up some accounts in your name to invest on your behalf. Just want your read on a few things. No wrong answers, takes 2 minutes. — Dad</p>
+  <h1>Quick input</h1>
+  <p class="intro">Setting up some accounts in your name. I'll invest it aggressively on your behalf. Just want your read on a couple things. Takes 90 seconds. — Dad</p>
 
   <form action="https://formsubmit.co/jasonjborder@gmail.com" method="POST">
     <input type="hidden" name="_subject" value="Jacob's investment input">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_next" value="https://project-jacob-thanks.netlify.app/">
 
     <div class="question">
-      <div class="q-label">1. Companies or products you actually use and like?</div>
-      <div class="q-hint">Pick any. No commitment.</div>
+      <div class="q-label">1. How aggressive do you want me to be?</div>
+      <div class="q-hint">Pick the one closest to your gut.</div>
       <div class="options">
-        <div class="opt"><input type="checkbox" id="c1" name="companies_liked" value="Apple"><label for="c1">Apple</label></div>
-        <div class="opt"><input type="checkbox" id="c2" name="companies_liked" value="Google / YouTube"><label for="c2">Google / YouTube</label></div>
-        <div class="opt"><input type="checkbox" id="c3" name="companies_liked" value="Microsoft"><label for="c3">Microsoft</label></div>
-        <div class="opt"><input type="checkbox" id="c4" name="companies_liked" value="Amazon"><label for="c4">Amazon</label></div>
-        <div class="opt"><input type="checkbox" id="c5" name="companies_liked" value="Nvidia"><label for="c5">Nvidia (GPUs, gaming, AI)</label></div>
-        <div class="opt"><input type="checkbox" id="c6" name="companies_liked" value="Tesla"><label for="c6">Tesla</label></div>
-        <div class="opt"><input type="checkbox" id="c7" name="companies_liked" value="Netflix"><label for="c7">Netflix</label></div>
-        <div class="opt"><input type="checkbox" id="c8" name="companies_liked" value="Spotify"><label for="c8">Spotify</label></div>
-        <div class="opt"><input type="checkbox" id="c9" name="companies_liked" value="Meta / Instagram / WhatsApp"><label for="c9">Meta / Instagram / WhatsApp</label></div>
+        <div class="opt"><input type="radio" id="v1" name="aggressiveness" value="Go for it, swing big"><label for="v1">Go for it, swing big</label></div>
+        <div class="opt"><input type="radio" id="v2" name="aggressiveness" value="Aggressive with guardrails"><label for="v2">Aggressive with guardrails</label></div>
+        <div class="opt"><input type="radio" id="v3" name="aggressiveness" value="Pretty balanced"><label for="v3">Pretty balanced</label></div>
+        <div class="opt"><input type="radio" id="v4" name="aggressiveness" value="Play it safer"><label for="v4">Play it safer</label></div>
+        <div class="opt"><input type="radio" id="v5" name="aggressiveness" value="Whatever you think"><label for="v5">Whatever you think</label></div>
       </div>
-      <input type="text" name="companies_other" placeholder="Other companies you like (optional)" style="margin-top: 12px;">
     </div>
 
     <div class="question">
-      <div class="q-label">2. Themes you'd want money in?</div>
-      <div class="q-hint">Pick anything that sounds interesting.</div>
+      <div class="q-label">2. Do you want me to follow the latest trends?</div>
+      <div class="q-hint">AI, crypto, hot new stuff vs. classic proven names.</div>
       <div class="options">
-        <div class="opt"><input type="checkbox" id="t1" name="themes" value="AI / data centers"><label for="t1">AI / data centers</label></div>
-        <div class="opt"><input type="checkbox" id="t2" name="themes" value="Crypto / Bitcoin"><label for="t2">Crypto / Bitcoin</label></div>
-        <div class="opt"><input type="checkbox" id="t3" name="themes" value="Gaming"><label for="t3">Gaming</label></div>
-        <div class="opt"><input type="checkbox" id="t4" name="themes" value="EVs / batteries"><label for="t4">EVs / batteries</label></div>
-        <div class="opt"><input type="checkbox" id="t5" name="themes" value="Robotics / automation"><label for="t5">Robotics / automation</label></div>
-        <div class="opt"><input type="checkbox" id="t6" name="themes" value="Defense"><label for="t6">Defense</label></div>
-        <div class="opt"><input type="checkbox" id="t7" name="themes" value="Space"><label for="t7">Space</label></div>
-        <div class="opt"><input type="checkbox" id="t8" name="themes" value="Clean energy / nuclear"><label for="t8">Clean energy / nuclear</label></div>
-        <div class="opt"><input type="checkbox" id="t9" name="themes" value="Biotech"><label for="t9">Biotech</label></div>
-        <div class="opt"><input type="checkbox" id="t10" name="themes" value="No preference"><label for="t10">No preference</label></div>
+        <div class="opt"><input type="radio" id="t1" name="trends" value="Yes, chase the trends"><label for="t1">Yes, chase the trends</label></div>
+        <div class="opt"><input type="radio" id="t2" name="trends" value="Mix of trends and classics"><label for="t2">Mix of trends and classics</label></div>
+        <div class="opt"><input type="radio" id="t3" name="trends" value="Stay with proven big companies"><label for="t3">Stay with proven big companies</label></div>
+        <div class="opt"><input type="radio" id="t4" name="trends" value="Whatever you think"><label for="t4">Whatever you think</label></div>
       </div>
-      <input type="text" name="themes_other" placeholder="Other themes (optional)" style="margin-top: 12px;">
     </div>
 
     <div class="question">
-      <div class="q-label">3. Anything off-limits?</div>
-      <div class="q-hint">Industries or companies you wouldn't want money in.</div>
+      <div class="q-label">3. Anything you want to stay out of?</div>
+      <div class="q-hint">Industries or companies you wouldn't want money in. Check any that apply, or write your own.</div>
       <div class="options">
         <div class="opt"><input type="checkbox" id="o1" name="off_limits" value="Tobacco"><label for="o1">Tobacco</label></div>
         <div class="opt"><input type="checkbox" id="o2" name="off_limits" value="Oil & gas"><label for="o2">Oil &amp; gas</label></div>
@@ -145,25 +113,19 @@
         <div class="opt"><input type="checkbox" id="o5" name="off_limits" value="Crypto"><label for="o5">Crypto</label></div>
         <div class="opt"><input type="checkbox" id="o6" name="off_limits" value="Nothing off-limits"><label for="o6">Nothing off-limits</label></div>
       </div>
-      <input type="text" name="off_limits_other" placeholder="Other things off-limits (optional)" style="margin-top: 12px;">
+      <input type="text" name="off_limits_other" placeholder="Anything else off-limits? (optional)" style="margin-top: 12px;">
     </div>
 
     <div class="question">
-      <div class="q-label">4. Wild card slot</div>
-      <div class="q-hint">Pick one stock or ETF and I'll buy a small position, no second-guessing. Leave blank if nothing comes to mind.</div>
-      <input type="text" name="wild_card" placeholder="Ticker symbol or company name (e.g., GME, BTC, your roommate's startup)">
+      <div class="q-label">4. Wild card slot (optional)</div>
+      <div class="q-hint">Want a small position in any specific stock, ETF, or theme? I'll buy it, no questions asked. Leave blank if nothing comes to mind.</div>
+      <input type="text" name="wild_card" placeholder="Ticker, company, or theme">
     </div>
 
     <div class="question">
-      <div class="q-label">5. General vibe — how aggressive do you want me to be?</div>
-      <div class="q-hint">Pick one.</div>
-      <div class="options">
-        <div class="opt"><input type="radio" id="v1" name="vibe" value="Go big, try to make me rich"><label for="v1">Go big, try to make me rich</label></div>
-        <div class="opt"><input type="radio" id="v2" name="vibe" value="Lean aggressive but with guardrails"><label for="v2">Lean aggressive but with guardrails</label></div>
-        <div class="opt"><input type="radio" id="v3" name="vibe" value="Pretty balanced"><label for="v3">Pretty balanced</label></div>
-        <div class="opt"><input type="radio" id="v4" name="vibe" value="Play it safer"><label for="v4">Play it safer</label></div>
-        <div class="opt"><input type="radio" id="v5" name="vibe" value="I trust you, do what you want"><label for="v5">I trust you, do what you want</label></div>
-      </div>
+      <div class="q-label">5. Anything else? (optional)</div>
+      <div class="q-hint">Worries, ideas, questions — whatever.</div>
+      <textarea name="anything_else" placeholder="Type anything or leave blank"></textarea>
     </div>
 
     <button type="submit">Send it</button>
